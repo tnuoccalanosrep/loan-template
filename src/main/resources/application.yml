@@ -1,0 +1,36 @@
+info:
+  app.name: admnin
+  contact: 维护人员洪金龙
+  build.version: $project.version$
+
+spring:
+  application:
+    name: admin-web
+  profiles:
+    active: self
+
+  http:
+    encoding:
+      force-request: true
+
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/resources/auth/
+
+feign:
+  compression:
+    request:
+      mime-types:
+        - text/xml
+        - application/json
+      min-request-size: 2048  #超过2048字节进行压缩
+
+wechat:
+  appId: wxf17410525704ca0f
+  appSecret: 2a85ba3ed72351dc545daec985ba6488
+
